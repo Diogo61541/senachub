@@ -2,7 +2,7 @@ const fs=require('node:fs'),path=require('node:path');
 const root=__dirname,out=path.join(root,'dist');
 const pages=['index.html','login.html','submissoes.html','meus-projetos.html','gestao.html','painel.html','biblioteca.html','projeto.html','mapa.html'];
 const scripts=['app.js','carousel.js','data.js','enhancements.js','experience.js','project-extras.js','project-tools.js','theme.js','workflow-data.js','workflow.js'];
-const assets=['style.css','logo-senac.png','senachub-logo-azul-v3.png',...scripts];
+const assets=['style.css','desktop.css','logo-senac.png','senachub-logo-azul-v3.png',...scripts];
 fs.mkdirSync(path.join(out,'assets','img'),{recursive:true});
 for(const p of pages)fs.copyFileSync(path.join(root,p),path.join(out,p));
 for(const asset of assets)fs.copyFileSync(path.join(root,'assets',asset),path.join(out,'assets',asset));
