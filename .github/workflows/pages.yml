@@ -1,0 +1,38 @@
+name: Publicar SenacHub no GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v6
+      - name: Verificar funcionalidades
+        run: node --test project-tools.test.cjs workflow.test.cjs
+      - name: Preparar site público
+        run: node build-pages.cjs
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+      - name: Empacotar site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,10 @@
+{
+  "name": "senachub-df",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node preview.cjs",
+    "build": "node build-pages.cjs",
+    "test": "node --test project-tools.test.cjs workflow.test.cjs"
+  }
+}

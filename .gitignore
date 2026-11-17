@@ -1,0 +1,16 @@
+.env
+runtime/
+*.sqlite*
+dist/
+.github-upload/
+*.zip
+entrega-primeira-pagina/
+/*-preview.png
+/login-preview.png
+/logo-aplicado.png
+/logo-fundo-azul.png
+/fluxo-submissao.png
+/preview-codigo-novo.png
+/catalogo-atualizado.png
+/carrossel-*.png
+/area-professor.png
